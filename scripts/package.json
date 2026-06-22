@@ -1,0 +1,11 @@
+{
+  "name": "esports-jobs-scraper",
+  "version": "2.0.0",
+  "description": "Puppeteer-based scraper for Boss直聘 job listings",
+  "private": true,
+  "dependencies": {
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "puppeteer": "^22.0.0"
+  }
+}

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>浙江穿越信息科技有限公司 | 电竞网咖 · 电竞酒店 · 电竞综合体</title>
+<meta name="description" content="浙江穿越信息科技有限公司，温州电竞连锁品牌。涵盖电竞网咖、电竞酒店、电竞综合体三大业务板块，致力于打造新一代线下电竞空间。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<style>
+/* ============================================================
+   Variables
+   ============================================================ */
+:root {
+  --c-bg:        #ffffff;
+  --c-bg-alt:    #f8fafc;
+  --c-bg-dark:   #0a1628;
+  --c-text:      #1e293b;
+  --c-text-2:    #64748b;
+  --c-text-3:    #94a3b8;
+  --c-text-inv:  #ffffff;
+  --c-accent:    #2563eb;
+  --c-accent-hv: #1d4ed8;
+  --c-accent-lt: #eff6ff;
+  --c-gold:      #b8860b;
+  --c-gold-lt:   #fffbeb;
+  --c-border:    #e2e8f0;
+  --c-shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+  --c-shadow:    0 4px 12px rgba(0,0,0,.06);
+  --c-shadow-lg: 0 16px 48px rgba(0,0,0,.08);
+  --radius:      12px;
+  --radius-sm:   8px;
+  --max-w:       1200px;
+  --font:        'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{font-family:var(--font);color:var(--c-text);background:var(--c-bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* ============================================================
+   Nav
+   ============================================================ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;transition:background .3s,box-shadow .3s}
+.nav.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--c-border)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:-.01em}
+.nav:not(.scrolled) .nav-logo{color:#e2e8f0}
+.nav.scrolled .nav-logo{color:var(--c-text)}
+.nav-links{display:flex;list-style:none;gap:32px;align-items:center}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--c-text-2);transition:color .2s}
+.nav-links a:hover{color:var(--c-text)}
+.nav-cta{background:var(--c-accent);color:#fff!important;padding:9px 22px;border-radius:6px;font-weight:600;transition:background .2s,transform .2s}
+.nav-cta:hover{background:var(--c-accent-hv);transform:translateY(-1px)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--c-text);border-radius:1px;transition:.25s}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* ============================================================
+   Hero — Full Screen, gradient background
+   ============================================================ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;
+  /* 深蓝渐变，非纯黑 */
+  background:
+    /* 网格纹理 */
+    linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px),
+    /* 主渐变 */
+    linear-gradient(160deg, #0f1d36 0%, #0a1628 30%, #0d1f3c 60%, #0f1d36 100%);
+  background-size: 64px 64px, 64px 64px, 100% 100%;
+}
+/* 光晕叠加 */
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 50% at 10% 40%, rgba(37,99,235,.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 85% 50%, rgba(168,85,247,.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 60% 20%, rgba(6,182,212,.05) 0%, transparent 60%);
+}
+.hero-inner{
+  max-width:var(--max-w);margin:0 auto;padding:100px 24px;
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+  font-size:.82rem;font-weight:500;color:#e2e8f0;letter-spacing:.04em;margin-bottom:28px;
+  padding:6px 16px;border:1px solid rgba(255,255,255,.15);border-radius:50px;
+}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#60a5fa;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.hero h1{font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.02em;color:#fff}
+.hero h1 em{font-style:normal;color:#60a5fa}
+.hero-desc{font-size:1.02rem;color:#94a3b8;line-height:1.9;margin-bottom:40px;max-width:460px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+
+/* Hero visual - ring mark */
+.hero-visual{display:flex;justify-content:center;align-items:center}
+.hero-brand-mark{
+  width:300px;height:300px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-brand-ring{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(255,255,255,.06);
+  animation:ringPulse 6s ease-in-out infinite;
+}
+.hero-brand-ring:nth-child(1){width:100%;height:100%;animation-delay:0s}
+.hero-brand-ring:nth-child(2){width:70%;height:70%;animation-delay:-2s}
+.hero-brand-ring:nth-child(3){width:44%;height:44%;animation-delay:-4s}
+@keyframes ringPulse{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.5;transform:scale(1.04)}}
+.hero-brand-center{position:relative;z-index:1;text-align:center;font-size:3.5rem;font-weight:900;color:#fff;line-height:1}
+.hero-brand-center small{display:block;font-size:.8rem;font-weight:500;color:#94a3b8;margin-top:8px;letter-spacing:.1em}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:13px 28px;border-radius:6px;font-size:.93rem;font-weight:600;cursor:pointer;border:none;transition:all .25s;font-family:var(--font)}
+.btn-primary{background:var(--c-accent);color:#fff}
+.btn-primary:hover{background:var(--c-accent-hv);transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.3)}
+.btn-white{background:#fff;color:var(--c-accent)}
+.btn-white:hover{background:#f1f5f9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.btn-outline{background:transparent;color:#e2e8f0;border:1px solid rgba(255,255,255,.18)}
+.btn-outline:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.04)}
+
+.scroll-indicator{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.3);font-size:.7rem;letter-spacing:.1em}
+.scroll-indicator span{display:block;width:1px;height:24px;background:rgba(255,255,255,.15);animation:scrollLine 2s ease-in-out infinite}
+@keyframes scrollLine{0%,100%{transform:scaleY(1);opacity:.3}50%{transform:scaleY(1.8);opacity:.8}}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+.section{padding:100px 24px}
+.section-alt{background:var(--c-bg-alt)}
+.section-inner{max-width:var(--max-w);margin:0 auto}
+.section-tag{font-size:.8rem;font-weight:600;color:var(--c-accent);letter-spacing:.06em;margin-bottom:12px}
+.section-title{font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:700;margin-bottom:14px;letter-spacing:-.01em}
+.section-desc{color:var(--c-text-2);font-size:1rem;max-width:560px;margin-bottom:56px;line-height:1.8}
+.text-center{text-align:center}
+.mx-auto{margin-left:auto;margin-right:auto}
+
+/* ============================================================
+   Intro Strip
+   ============================================================ */
+.intro-strip{padding:60px 24px;text-align:center;border-bottom:1px solid var(--c-border)}
+.intro-strip-inner{max-width:var(--max-w);margin:0 auto}
+.intro-strip h2{font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:10px}
+.intro-strip p{color:var(--c-text-2);font-size:1rem;max-width:600px;margin:0 auto}
+
+/* ============================================================
+   Business Cards
+   ============================================================ */
+.card-grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.biz-card{background:var(--c-bg);border:1px solid var(--c-border);border-radius:var(--radius);padding:36px 30px;transition:box-shadow .3s,transform .3s;position:relative;overflow:hidden}
+.biz-card:hover{box-shadow:var(--c-shadow-lg);transform:translateY(-4px)}
+.biz-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.biz-card:nth-child(1)::before{background:var(--c-accent)}
+.biz-card:nth-child(2)::before{background:var(--c-gold)}
+.biz-card:nth-child(3)::before{background:linear-gradient(90deg,var(--c-accent),var(--c-gold))}
+.biz-num{font-size:2.4rem;font-weight:700;color:var(--c-border);line-height:1;margin-bottom:16px}
+.biz-card h3{margin-bottom:10px;font-size:1.15rem;font-weight:600}
+.biz-card p{color:var(--c-text-2);font-size:.93rem;line-height:1.8}
+
+/* ============================================================
+   Stats
+   ============================================================ */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px;text-align:center}
+.stat-num{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:6px}
+.stat-label{color:var(--c-text-2);font-size:.9rem}
+
+/* ============================================================
+   Features
+   ============================================================ */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.feat-item{display:flex;gap:16px;padding:24px;border-radius:var(--radius-sm);border:1px solid transparent;transition:background .25s,border .25s}
+.feat-item:hover{background:var(--c-bg-alt);border-color:var(--c-border)}
+.feat-icon{flex-shrink:0;width:44px;height:44px;border-radius:var(--radius-sm);background:var(--c-accent-lt);color:var(--c-accent);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.feat-text h4{font-size:.95rem;margin-bottom:4px}
+.feat-text p{font-size:.85rem;color:var(--c-text-2)}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta-banner{
+  background:linear-gradient(160deg, #0f1d36 0%, #0a1628 100%);
+  color:var(--c-text-inv);padding:80px 24px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(37,99,235,.1) 0%,transparent 70%);pointer-events:none}
+.cta-banner-inner{max-width:600px;margin:0 auto;position:relative;z-index:1}
+.cta-banner h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:12px}
+.cta-banner p{color:#94a3b8;margin-bottom:32px;font-size:1rem}
+.cta-banner .btn{margin:0 8px}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer{background:linear-gradient(160deg, #0f1d36 0%, #0a1628 100%);color:#94a3b8;padding:48px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-name{font-size:1.1rem;font-weight:700;color:#e2e8f0;margin-bottom:8px}
+.footer p{font-size:.85rem}
+.footer-links{display:flex;gap:24px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.footer-links a{font-size:.85rem;color:var(--c-text-3);transition:color .2s}
+.footer-links a:hover{color:#e2e8f0}
+
+/* ============================================================
+   Reveal
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media(max-width:860px){
+  .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}
+  .hero-desc{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero-visual{display:none}
+  .nav-links{position:fixed;inset:0;flex-direction:column;justify-content:center;gap:28px;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .3s}
+  .nav-links.active{opacity:1;pointer-events:auto}
+  .nav-toggle{display:flex;z-index:1001}
+}
+@media(max-width:520px){
+  .section{padding:60px 16px}
+  .hero-inner{padding:100px 16px 60px}
+  .hero-actions{flex-direction:column;align-items:center}
+  .hero-actions .btn{width:100%;justify-content:center;max-width:280px}
+  .cta-banner .btn{margin:6px 0;width:100%;justify-content:center;max-width:280px}
+}
+</style>
+<script>history.scrollRestoration='manual'</script>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">穿越电竞</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="closeMenu()">业务体系</a></li>
+      <li><a href="#features" onclick="closeMenu()">核心优势</a></li>
+      <li><a href="jobs.html">加入我们</a></li>
+      <li><a href="contact.html" class="nav-cta">商务联系</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     Hero — Full Screen
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        浙江穿越信息科技有限公司
+      </div>
+      <h1>电竞网咖 · 电竞酒店<br><em>电竞综合体</em></h1>
+      <p class="hero-desc">
+        深耕温州市场，以标准化运营体系与顶级硬件配置，
+        构建覆盖电竞网咖、电竞酒店、电竞综合体三大业态的线下电竞空间网络。
+      </p>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn btn-white">商务合作</a>
+        <a href="jobs.html" class="btn btn-outline">加入我们 →</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-brand-mark">
+        <div class="hero-brand-ring"></div>
+        <div class="hero-brand-ring"></div>
+        <div class="hero-brand-ring"></div>
+        <div class="hero-brand-center">
+          CY
+          <small>穿越电竞</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator"><span></span>向下滚动</div>
+</section>
+
+<!-- ============================================================
+     Intro Strip
+     ============================================================ -->
+<div class="intro-strip reveal">
+  <div class="intro-strip-inner">
+    <h2>温州连锁电竞空间运营商</h2>
+    <p>旗下运营多家电竞网咖与电竞酒店，累计服务超百万电竞玩家，致力于为 Z 世代提供高品质的线下电竞娱乐体验。</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     Business
+     ============================================================ -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="text-center reveal">
+      <p class="section-tag">业务体系</p>
+      <h2 class="section-title">三大核心业务板块</h2>
+      <p class="section-desc mx-auto">覆盖电竞网咖、电竞酒店、电竞综合体，构建完整的线下电竞空间生态</p>
+    </div>
+    <div class="card-grid-3">
+      <div class="biz-card reveal">
+        <div class="biz-num">01</div>
+        <h3>电竞网咖</h3>
+        <p>搭载 RTX 5090 显卡与 540Hz 电竞显示器，全光纤网络覆盖。设对战区、直播区、VIP 包厢及休闲水吧，支持职业战队训练与电竞赛事承办。温州核心商圈均有门店覆盖。</p>
+      </div>
+      <div class="biz-card reveal">
+        <div class="biz-num">02</div>
+        <h3>电竞酒店</h3>
+        <p>每间客房标配高性能电竞主机与专业外设，网络延迟 &lt;5ms。配备人体工学电竞椅、4K 大屏与环绕音响，智能客控系统一键切换游戏 / 观影 / 休息模式。</p>
+      </div>
+      <div class="biz-card reveal">
+        <div class="biz-num">03</div>
+        <h3>电竞综合体</h3>
+        <p>电竞网咖 + 电竞酒店 + 专业赛事场馆一体化运营。配备 LED 大屏、解说席与舞台灯光系统，可承办百人级电竞赛事，整合餐饮零售形成全天候电竞商业空间。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Stats
+     ============================================================ -->
+<section class="section section-alt" id="stats">
+  <div class="section-inner">
+    <div class="stats-grid">
+      <div class="reveal"><div class="stat-num"><span class="counter" data-target="10000">0</span>+</div><div class="stat-label">在运营电竞设备</div></div>
+      <div class="reveal"><div class="stat-num"><span class="counter" data-target="99.9">0</span>%</div><div class="stat-label">网络可用率 SLA</div></div>
+      <div class="reveal"><div class="stat-num"><span class="counter" data-target="80">0</span>+</div><div class="stat-label">温州覆盖门店</div></div>
+      <div class="reveal"><div class="stat-num"><span class="counter" data-target="30000">0</span>+</div><div class="stat-label">日均服务人次</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Features
+     ============================================================ -->
+<section class="section" id="features">
+  <div class="section-inner">
+    <div class="text-center reveal">
+      <p class="section-tag">核心优势</p>
+      <h2 class="section-title">标准化运营管理体系</h2>
+      <p class="section-desc mx-auto">从硬件供应链到门店运营，从空间设计到数据化管理，建立全链路标准化体系</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-item reveal"><div class="feat-icon">🖥️</div><div class="feat-text"><h4>硬件供应链管理</h4><p>与 NVIDIA、Intel、Razer 等品牌建立直采合作，确保设备性能领先且成本可控</p></div></div>
+      <div class="feat-item reveal"><div class="feat-icon">🌐</div><div class="feat-text"><h4>网络架构方案</h4><p>自研网络拓扑方案，全光纤骨干 + Wi-Fi 7 覆盖，游戏延迟稳定 &lt;5ms</p></div></div>
+      <div class="feat-item reveal"><div class="feat-icon">📋</div><div class="feat-text"><h4>SOP 运营标准</h4><p>覆盖设备巡检、卫生保洁、客户接待、应急响应的全流程标准化作业程序</p></div></div>
+      <div class="feat-item reveal"><div class="feat-icon">🏆</div><div class="feat-text"><h4>赛事运营能力</h4><p>自有赛事 IP 策划与执行团队，年承办各类电竞赛事 100+ 场</p></div></div>
+      <div class="feat-item reveal"><div class="feat-icon">🏗️</div><div class="feat-text"><h4>空间设计标准</h4><p>模块化空间设计方案，涵盖动线规划、灯光系统、声学处理与品牌 VI 植入</p></div></div>
+      <div class="feat-item reveal"><div class="feat-icon">📊</div><div class="feat-text"><h4>数据化经营</h4><p>自研门店管理系统，实时监控设备利用率、客流量与营收数据，驱动精细化运营</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="cta-banner reveal">
+  <div class="cta-banner-inner">
+    <h2>场地合作 · 供应链对接 · 投资洽谈</h2>
+    <p>无论是想了解门店分布、咨询合作模式，还是加入我们的团队，都欢迎与我们联系。</p>
+    <a href="contact.html" class="btn btn-white">商务联系</a>
+    <a href="jobs.html" class="btn btn-outline" style="border-color:rgba(255,255,255,.18)">查看招聘</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     Footer
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-name">浙江穿越信息科技有限公司</div>
+    <p>电竞网咖 · 电竞酒店 · 电竞综合体</p>
+    <div class="footer-links">
+      <a href="index.html">首页</a>
+      <a href="contact.html">商务联系</a>
+      <a href="jobs.html">加入我们</a>
+    </div>
+    <p style="margin-top:20px">© 2026 浙江穿越信息科技有限公司. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav'),navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');
+function toggleMenu(){navToggle.classList.toggle('active');navLinks.classList.toggle('active');document.body.style.overflow=navLinks.classList.contains('active')?'hidden':''}
+function closeMenu(){navToggle.classList.remove('active');navLinks.classList.remove('active');document.body.style.overflow=''}
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)},{passive:true});
+
+new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12,rootMargin:'0px 0px -30px 0px'}).observe(document.querySelector('.intro-strip'));
+document.querySelectorAll('.reveal').forEach(e=>new IntersectionObserver(x=>x.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.12,rootMargin:'0px 0px -30px 0px'}).observe(e));
+
+document.querySelectorAll('.counter').forEach(c=>new IntersectionObserver(e=>{e.forEach(e=>{if(!e.isIntersecting)return;const t=e.target,n=parseFloat(t.dataset.target),f=n%1!==0,r=performance.now();function a(e){const o=Math.min((e-r)/1800,1),s=n*(1-Math.pow(2,-10*o));t.textContent=f?s.toFixed(1):Math.floor(s);o<1?requestAnimationFrame(a):t.textContent=f?n.toFixed(1):n}requestAnimationFrame(a);})},{threshold:.4}).observe(c));
+</script>
+</body>
+</html>

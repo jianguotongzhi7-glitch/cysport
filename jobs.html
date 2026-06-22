@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加入我们 | 浙江穿越信息科技有限公司</title>
+<meta name="description" content="浙江穿越信息科技有限公司招聘信息。门店运营、电竞技术、赛事策划等多岗位热招中。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<style>
+:root{
+  --c-bg:#fff;--c-bg-alt:#f8fafc;--c-bg-dark:#0a1628;
+  --c-text:#1e293b;--c-text-2:#64748b;--c-text-3:#94a3b8;--c-text-inv:#fff;
+  --c-accent:#2563eb;--c-accent-hv:#1d4ed8;--c-accent-lt:#eff6ff;
+  --c-gold:#b8860b;--c-gold-lt:#fffbeb;
+  --c-border:#e2e8f0;--c-red:#ef4444;
+  --c-shadow:0 4px 12px rgba(0,0,0,.06);--c-shadow-lg:0 16px 48px rgba(0,0,0,.08);
+  --radius:12px;--radius-sm:8px;--max-w:1100px;
+  --font:'Inter','Noto Sans SC',system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{font-family:var(--font);color:var(--c-text);background:var(--c-bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--c-border)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--c-text);letter-spacing:-.01em}
+.nav-links{display:flex;list-style:none;gap:32px;align-items:center}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--c-text-2);transition:color .2s}
+.nav-links a:hover{color:var(--c-text)}
+.nav-links a.active{color:var(--c-accent);font-weight:600}
+.nav-cta{background:var(--c-accent);color:#fff!important;padding:9px 22px;border-radius:6px;font-weight:600;transition:background .2s,transform .2s}
+.nav-cta:hover{background:var(--c-accent-hv);transform:translateY(-1px)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--c-text);border-radius:1px;transition:.25s}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Page Header */
+.page-header{
+  min-height:45vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:linear-gradient(160deg, #0f1d36 0%, #0a1628 30%, #0d1f3c 60%, #0f1d36 100%), linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
+  background-size:100% 100%, 64px 64px, 64px 64px;
+  color:var(--c-text-inv);position:relative;overflow:hidden;padding:100px 24px 60px;
+}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(37,99,235,.1) 0%,transparent 70%);pointer-events:none}
+.page-header-inner{max-width:600px;margin:0 auto;position:relative;z-index:1}
+.page-header h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:12px;letter-spacing:-.01em}
+.page-header p{color:#94a3b8;font-size:1rem;line-height:1.8}
+.page-header .header-stats{display:flex;gap:32px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.page-header .header-stat{text-align:center}
+.page-header .header-stat strong{display:block;font-size:1.5rem;font-weight:700;color:#e2e8f0}
+.page-header .header-stat span{font-size:.8rem;color:#94a3b8}
+
+/* Section */
+.section{padding:80px 24px}
+.section-inner{max-width:var(--max-w);margin:0 auto}
+.section-head{margin-bottom:40px}
+.section-head h2{font-size:1.5rem;font-weight:700;margin-bottom:8px}
+.section-head p{color:var(--c-text-2);font-size:.95rem}
+
+/* Loading / Empty */
+.loading-placeholder{text-align:center;padding:60px 0;color:var(--c-text-3)}
+.loading-placeholder .spinner-big{width:36px;height:36px;border:3px solid var(--c-border);border-top-color:var(--c-accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.update-time{text-align:right;font-size:.78rem;color:var(--c-text-3);margin-bottom:16px}
+
+/* Job Cards */
+.job-list{display:flex;flex-direction:column;gap:16px}
+.job-card{background:var(--c-bg);border:1px solid var(--c-border);border-radius:var(--radius);padding:28px 30px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;transition:box-shadow .25s,transform .25s;cursor:pointer}
+.job-card:hover{box-shadow:var(--c-shadow-lg);transform:translateY(-2px)}
+.job-info h3{font-size:1.08rem;font-weight:600;margin-bottom:8px}
+.job-meta{display:flex;gap:20px;flex-wrap:wrap;font-size:.85rem;color:var(--c-text-2);margin-bottom:10px}
+.job-meta span{display:inline-flex;align-items:center;gap:5px}
+.job-tags{display:flex;gap:8px;flex-wrap:wrap}
+.job-tag{font-size:.75rem;padding:3px 10px;border-radius:50px;font-weight:500}
+.job-tag.blue{background:var(--c-accent-lt);color:var(--c-accent)}
+.job-tag.gold{background:var(--c-gold-lt);color:var(--c-gold)}
+.job-tag.green{background:#f0fdf4;color:#16a34a}
+.job-tag.red{background:#fef2f2;color:var(--c-red)}
+.job-arrow{color:var(--c-text-3);font-size:1.2rem;transition:transform .25s}
+.job-card:hover .job-arrow{transform:translateX(4px);color:var(--c-accent)}
+
+/* Modal */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:24px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--c-bg);border-radius:var(--radius);max-width:600px;width:100%;max-height:85vh;overflow-y:auto;padding:40px 32px;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.2)}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:1px solid var(--c-border);background:var(--c-bg);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--c-text-2);transition:all .2s}
+.modal-close:hover{background:var(--c-bg-alt);color:var(--c-text)}
+.modal h2{font-size:1.3rem;margin-bottom:16px}
+.modal .job-meta{margin-bottom:20px}
+.modal h4{font-size:.95rem;font-weight:600;margin:20px 0 8px;color:var(--c-text)}
+.modal ul{padding-left:20px;color:var(--c-text-2);font-size:.9rem;line-height:2}
+.modal .apply-btn{display:inline-flex;align-items:center;gap:6px;margin-top:24px;padding:12px 28px;background:var(--c-accent);color:#fff;border:none;border-radius:6px;font-size:.93rem;font-weight:600;cursor:pointer;font-family:var(--font);transition:all .25s}
+.modal .apply-btn:hover{background:var(--c-accent-hv);transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,99,235,.25)}
+
+/* External link banner */
+.ext-banner{background:var(--c-accent-lt);border:1px solid rgba(37,99,235,.12);border-radius:var(--radius);padding:28px 30px;display:flex;align-items:center;gap:20px;margin-bottom:40px;flex-wrap:wrap}
+.ext-banner-icon{flex-shrink:0;width:48px;height:48px;border-radius:var(--radius-sm);background:var(--c-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.ext-banner-text{flex:1;min-width:200px}
+.ext-banner-text h3{font-size:1rem;margin-bottom:4px}
+.ext-banner-text p{font-size:.85rem;color:var(--c-text-2)}
+.ext-banner .btn-outline{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border:1px solid var(--c-accent);border-radius:6px;color:var(--c-accent);font-size:.88rem;font-weight:600;transition:all .2s;white-space:nowrap}
+.ext-banner .btn-outline:hover{background:var(--c-accent);color:#fff}
+
+/* About */
+.about-company{background:var(--c-bg-alt);border-radius:var(--radius);padding:36px 32px;margin-bottom:40px}
+.about-company h3{font-size:1.05rem;margin-bottom:12px}
+.about-company p{color:var(--c-text-2);font-size:.9rem;line-height:1.9}
+
+/* Resume CTA */
+.resume-cta{background:linear-gradient(160deg, #0f1d36 0%, #0a1628 100%);color:var(--c-text-inv);border-radius:var(--radius);padding:40px 32px;text-align:center;position:relative;overflow:hidden}
+.resume-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(37,99,235,.1) 0%,transparent 70%);pointer-events:none}
+.resume-cta-inner{position:relative;z-index:1}
+.resume-cta h3{font-size:1.2rem;margin-bottom:8px}
+.resume-cta p{color:#94a3b8;font-size:.9rem;margin-bottom:20px}
+.resume-cta a{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border:1px solid rgba(255,255,255,.3);border-radius:6px;color:#e2e8f0;font-size:.88rem;font-weight:600;transition:all .2s}
+.resume-cta a:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.5)}
+
+/* Footer */
+.footer{background:linear-gradient(160deg, #0f1d36 0%, #0a1628 100%);color:#94a3b8;padding:40px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-name{font-size:1.05rem;font-weight:700;color:#e2e8f0;margin-bottom:6px}
+.footer p{font-size:.82rem}
+.footer-links{display:flex;gap:24px;justify-content:center;margin-top:14px}
+.footer-links a{font-size:.82rem;color:var(--c-text-3);transition:color .2s}
+.footer-links a:hover{color:#e2e8f0}
+
+@media(max-width:860px){
+  .job-card{grid-template-columns:1fr;gap:12px}
+  .job-arrow{display:none}
+  .nav-links{position:fixed;inset:0;flex-direction:column;justify-content:center;gap:28px;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .3s}
+  .nav-links.active{opacity:1;pointer-events:auto}
+  .nav-toggle{display:flex;z-index:1001}
+}
+@media(max-width:520px){
+  .section{padding:50px 16px}
+  .page-header{padding:100px 16px 50px;min-height:35vh}
+  .modal{padding:28px 20px}
+}
+</style>
+<script>history.scrollRestoration='manual'</script>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">穿越电竞</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="index.html#about">业务体系</a></li>
+      <li><a href="jobs.html" class="nav-cta active">加入我们</a></li>
+      <li><a href="contact.html">商务联系</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <h1>加入我们</h1>
+    <p>温州连锁电竞空间运营商诚聘英才<br>与我们一起打造浙南地区优秀的线下电竞空间</p>
+    <div class="header-stats" id="headerStats"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+
+    <div class="about-company">
+      <h3>关于浙江穿越信息科技</h3>
+      <p>浙江穿越信息科技有限公司是温州地区规模领先的电竞连锁企业，旗下运营穿越电竞馆、穿越电竞酒店等多个品牌。公司深耕线下电竞空间多年，建立了从硬件供应链、空间设计到门店运营的完整标准化体系。我们致力于为 Z 世代电竞玩家提供顶级的游戏设备、舒适的沉浸环境和专业的赛事体验。<br><br>随着业务持续扩展，电竞综合体项目即将落地，我们诚邀热爱电竞、追求卓越的你加入团队。</p>
+    </div>
+
+    <div class="ext-banner">
+      <div class="ext-banner-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div class="ext-banner-text"><h3>更多招聘信息在 Boss 直聘</h3><p>关注我们的 Boss 直聘企业主页，获取最新职位与即时沟通。</p></div>
+      <a href="https://m.zhipin.com/companys/cf58c7f2488967261X1z3tq7F1A~.html" target="_blank" rel="noopener" class="btn-outline">Boss 直聘主页 ↗</a>
+    </div>
+
+    <div class="section-head">
+      <h2>热招岗位</h2>
+      <p>以下岗位工作地点均在温州市，点击查看详情</p>
+      <div class="update-time" id="updateTime"></div>
+    </div>
+
+    <div class="job-list" id="jobList">
+      <div class="loading-placeholder"><div class="spinner-big"></div><p>加载招聘数据中...</p></div>
+    </div>
+
+    <div class="resume-cta" style="margin-top:48px">
+      <div class="resume-cta-inner">
+        <h3>📩 投递简历</h3>
+        <p><strong style="color:#e2e8f0"></strong><br>邮件标题请注明「应聘岗位 + 姓名」</p>
+        <a href="contact.html">前往联系页面 →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-name">浙江穿越信息科技有限公司</div>
+    <p>电竞网咖 · 电竞酒店 · 电竞综合体</p>
+    <div class="footer-links"><a href="index.html">首页</a><a href="contact.html">商务联系</a><a href="jobs.html">加入我们</a></div>
+    <p style="margin-top:16px">© 2026 浙江穿越信息科技有限公司. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeJob(event)">
+  <div class="modal" id="modalContent" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeJob()">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+
+// ============================================================
+var __EMBEDDED_JOBS__ = [
+  {"id":"job1","title":"网咖收银员","salary":"4,000 – 6,000 元/月","location":"瓯海区仙岩街道沈东路69号 2F（穿越电竞馆·非凡店）","type":"轮班制","exp":"经验不限","edu":"学历不限","urgent":true,"mgmt":false,"desc":"负责网咖前台收银、会员开卡充值、商品销售及简单的客户引导。无需相关经验，提供岗前培训。","req":["热情开朗，服务意识强，能适应轮班工作","基本的电脑操作能力","有收银或服务行业经验者优先，无经验可培训上岗","年龄 18-35 岁，身体健康"]},
+  {"id":"job2","title":"网咖网管 / 技术维护","salary":"5,000 – 8,000 元/月","location":"温州各门店（根据需求分配）","type":"轮班制","exp":"1年以上经验","edu":"中专及以上","urgent":false,"mgmt":false,"desc":"负责门店电脑硬件维护、网络故障排查、外设检修及系统更新。保障门店设备的稳定运行，为顾客提供技术支持。","req":["熟悉电脑硬件组装与系统安装，能独立排查常见故障","了解局域网基础知识，有网络维护经验者优先","有网咖、网吧或 IT 运维经验者优先","责任心强，能及时响应设备报修"]},
+  {"id":"job3","title":"电竞酒店前台接待","salary":"4,500 – 6,500 元/月","location":"瑞安市安阳街道（穿越电竞酒店·瑞祥店）","type":"轮班制","exp":"经验不限","edu":"高中及以上","urgent":true,"mgmt":false,"desc":"负责电竞酒店前台接待、入住退房办理、客房状态管理及客户咨询服务。为住客提供优质的入住体验。","req":["形象良好，沟通能力强，服务意识佳","熟悉基本的电脑操作和办公软件","有酒店前台或服务行业经验者优先","能适应轮班制度"]},
+  {"id":"job4","title":"门店店长 / 储备店长","salary":"8,000 – 15,000 元/月","location":"温州各门店（根据编制分配）","type":"全职","exp":"2年以上经验","edu":"大专及以上","urgent":false,"mgmt":true,"desc":"全面负责门店日常运营管理，包括人员排班、业绩考核、成本控制、客户满意度及突发事件处理。带领团队达成经营目标。","req":["2年以上网咖/酒店/连锁门店管理经验","具备团队管理能力和良好的沟通协调能力","熟悉门店经营数据分析，能制定合理的运营策略","抗压能力强，有责任心和执行力","有电竞行业从业经验者优先考虑"]},
+  {"id":"job5","title":"电竞赛事运营 / 策划","salary":"6,000 – 10,000 元/月","location":"温州主城区","type":"全职","exp":"1年以上经验","edu":"大专及以上","urgent":false,"mgmt":false,"desc":"负责公司电竞赛事的策划、组织与执行。包括赛事方案制定、赛程编排、选手招募、现场执行及赛事直播协调。打造穿越电竞自有赛事 IP。","req":["热爱电竞，熟悉主流电竞游戏及赛事体系","有活动策划或赛事运营经验","具备良好的组织协调能力和现场应变能力","有自媒体运营或直播经验者加分","能接受赛事期间的弹性工作时间"]}
+];
+
+var jobsData = [];
+
+(function(){
+  var listEl = document.getElementById('jobList');
+
+
+  function render() {
+    if (!jobsData.length) {
+      listEl.innerHTML = '<div class="loading-placeholder"><p>暂无在招岗位，请关注 Boss 直聘获取最新信息。</p></div>';
+      return;
+    }
+
+    listEl.innerHTML = jobsData.map(function(j, i) {
+      return '<div class="job-card" onclick="openJob(' + i + ')">' +
+        '<div class="job-info">' +
+          '<h3>' + j.title + '</h3>' +
+          '<div class="job-meta">' +
+            '<span>💰 ' + j.salary + '</span>' +
+            '<span>📍 ' + j.location.split('（')[0] + '</span>' +
+            '<span>🕐 ' + j.type + '</span>' +
+          '</div>' +
+          '<div class="job-tags">' +
+            '<span class="job-tag blue">' + j.exp + '</span>' +
+            '<span class="job-tag green">' + j.edu + '</span>' +
+            (j.urgent ? '<span class="job-tag gold">急招</span>' : '') +
+            (j.mgmt ? '<span class="job-tag red">管理层</span>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="job-arrow">→</div>' +
+      '</div>';
+    }).join('');
+
+    document.getElementById('headerStats').innerHTML =
+      '<div class="header-stat"><strong>80+</strong><span>覆盖门店</span></div>' +
+      '<div class="header-stat"><strong>500+</strong><span>团队成员</span></div>' +
+      '<div class="header-stat"><strong>' + jobsData.length + '</strong><span>当前热招岗位</span></div>';
+
+    var now = new Date();
+    document.getElementById('updateTime').textContent =
+      '数据更新于 ' + now.getFullYear() + '/' +
+      (now.getMonth()+1 < 10 ? '0' : '') + (now.getMonth()+1) + '/' +
+      (now.getDate() < 10 ? '0' : '') + now.getDate() + ' ' +
+      (now.getHours() < 10 ? '0' : '') + now.getHours() + ':' +
+      (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
+  }
+
+  // 尝试 fetch 远程 jobs.json
+  fetch('jobs.json?v=' + Date.now())
+    .then(function(r) { return r.ok ? r.json() : Promise.reject('HTTP ' + r.status); })
+    .then(function(data) {
+      if (Array.isArray(data) && data.length > 0) { jobsData = data; }
+      render();
+    })
+    .catch(function() {
+      // fetch 失败，使用内嵌数据
+      jobsData = __EMBEDDED_JOBS__;
+      render();
+    });
+})();
+
+// ============================================================
+// 岗位详情弹窗
+// ============================================================
+var benefits = [
+  '有竞争力的薪资 + 绩效奖金',
+  '员工免费上网 / 住宿折扣',
+  '节假日福利 + 定期团建',
+  '清晰的晋升通道（店员 → 领班 → 店长 → 区域经理）'
+];
+
+function openJob(index) {
+  var j = jobsData[index];
+  if (!j) return;
+  document.getElementById('modalBody').innerHTML =
+    '<h2>' + j.title + '</h2>' +
+    '<div class="job-meta">' +
+      '<span>💰 ' + j.salary + '</span>' +
+      '<span>📍 ' + j.location + '</span>' +
+      '<span>🕐 ' + j.type + '</span>' +
+    '</div>' +
+    '<div class="job-tags">' +
+      '<span class="job-tag blue">' + j.exp + '</span>' +
+      '<span class="job-tag green">' + j.edu + '</span>' +
+      (j.urgent ? '<span class="job-tag gold">急招</span>' : '') +
+      (j.mgmt ? '<span class="job-tag red">管理层</span>' : '') +
+    '</div>' +
+    '<h4>岗位描述</h4>' +
+    '<p style="color:var(--c-text-2);font-size:.9rem;line-height:1.9">' + j.desc + '</p>' +
+    '<h4>任职要求</h4>' +
+    '<ul>' + j.req.map(function(r) { return '<li>' + r + '</li>'; }).join('') + '</ul>' +
+    '<h4>薪资福利</h4>' +
+    '<ul>' + benefits.map(function(b) { return '<li>' + b + '</li>'; }).join('') + '</ul>' +
+    '<a href="contact.html" class="apply-btn">投递简历 →</a>' +
+    '<p style="margin-top:12px;font-size:.8rem;color:var(--c-text-3)"> <strong></strong></p>';
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeJob(e) {
+  if (e && e.target !== document.getElementById('modalOverlay')) return;
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeJob(); });
+
+// Nav
+var navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');
+function toggleMenu(){navToggle.classList.toggle('active');navLinks.classList.toggle('active');document.body.style.overflow=navLinks.classList.contains('active')?'hidden':''}
+function closeMenu(){navToggle.classList.remove('active');navLinks.classList.remove('active');document.body.style.overflow=''}
+</script>
+
+</body>
+</html>

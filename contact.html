@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商务联系 | 浙江穿越信息科技有限公司</title>
+<meta name="description" content="浙江穿越信息科技有限公司联系方式。商务合作、场地咨询、投资洽谈，欢迎来电来函。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<style>
+:root{
+  --c-bg:#fff;--c-bg-alt:#f8fafc;--c-bg-dark:#0a1628;
+  --c-text:#1e293b;--c-text-2:#64748b;--c-text-3:#94a3b8;--c-text-inv:#fff;
+  --c-accent:#2563eb;--c-accent-hv:#1d4ed8;--c-accent-lt:#eff6ff;
+  --c-gold:#b8860b;--c-gold-lt:#fffbeb;
+  --c-border:#e2e8f0;
+  --c-shadow:0 4px 12px rgba(0,0,0,.06);--c-shadow-lg:0 16px 48px rgba(0,0,0,.08);
+  --radius:12px;--radius-sm:8px;--max-w:1100px;
+  --font:'Inter','Noto Sans SC',system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{font-family:var(--font);color:var(--c-text);background:var(--c-bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--c-border)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--c-text);letter-spacing:-.01em}
+.nav-links{display:flex;list-style:none;gap:32px;align-items:center}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--c-text-2);transition:color .2s}
+.nav-links a:hover{color:var(--c-text)}
+.nav-links a.active{color:var(--c-accent);font-weight:600}
+.nav-cta{background:var(--c-accent);color:#fff!important;padding:9px 22px;border-radius:6px;font-weight:600;transition:background .2s,transform .2s}
+.nav-cta:hover{background:var(--c-accent-hv);transform:translateY(-1px)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--c-text);border-radius:1px;transition:.25s}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Page Header */
+.page-header{background:linear-gradient(160deg, #0f1d36 0%, #0a1628 30%, #0d1f3c 60%, #0f1d36 100%);color:var(--c-text-inv);padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(37,99,235,.1) 0%,transparent 70%);pointer-events:none}
+.page-header-inner{max-width:600px;margin:0 auto;position:relative;z-index:1}
+.page-header h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:12px;letter-spacing:-.01em}
+.page-header p{color:#94a3b8;font-size:1rem}
+
+/* Section */
+.section{padding:80px 24px}
+.section-inner{max-width:var(--max-w);margin:0 auto}
+.section-title{font-size:1.4rem;font-weight:700;margin-bottom:8px}
+.section-desc{color:var(--c-text-2);font-size:.95rem;margin-bottom:32px}
+
+/* Contact Grid */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+
+/* Info Cards */
+.info-card{background:var(--c-bg);border:1px solid var(--c-border);border-radius:var(--radius);padding:24px 20px;margin-bottom:14px;display:flex;gap:14px;align-items:flex-start;transition:box-shadow .25s}
+.info-card:hover{box-shadow:var(--c-shadow)}
+.info-card-icon{flex-shrink:0;width:42px;height:42px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.info-card-icon.blue{background:var(--c-accent-lt);color:var(--c-accent)}
+.info-card-icon.gold{background:var(--c-gold-lt);color:var(--c-gold)}
+.info-card h3{font-size:.9rem;margin-bottom:3px}
+.info-card p{color:var(--c-text-2);font-size:.85rem;line-height:1.7}
+
+/* Form */
+.form-wrap{background:var(--c-bg);border:1px solid var(--c-border);border-radius:var(--radius);padding:36px 32px;box-shadow:var(--c-shadow);position:sticky;top:88px}
+.form-wrap h2{font-size:1.15rem;margin-bottom:8px}
+.form-wrap>p{font-size:.88rem;color:var(--c-text-2);margin-bottom:24px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.84rem;font-weight:500;margin-bottom:5px;color:var(--c-text)}
+.form-group input,.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--c-border);border-radius:6px;font-family:var(--font);font-size:.9rem;color:var(--c-text);background:var(--c-bg);outline:none;transition:border .2s,box-shadow .2s;resize:vertical}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--c-accent);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.form-group textarea{min-height:120px}
+.form-submit{width:100%;justify-content:center;display:flex;align-items:center;gap:8px;padding:12px 28px;border-radius:6px;font-size:.93rem;font-weight:600;cursor:pointer;border:none;background:var(--c-accent);color:#fff;font-family:var(--font);transition:all .25s}
+.form-submit:hover{background:var(--c-accent-hv);transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,99,235,.25)}
+.form-feedback{margin-top:14px;padding:10px 14px;border-radius:6px;font-size:.86rem;text-align:center;display:none;white-space:pre-line}
+.form-feedback.success{display:block;background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+.form-feedback.error{display:block;background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
+.spinner{display:none;width:16px;height:16px;border:2px solid transparent;border-top-color:currentColor;border-radius:50%;animation:spin .6s linear infinite}
+.btn-loading .btn-text{opacity:.5}
+.btn-loading .spinner{display:block}
+.btn-loading{pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Store Search & Cards */
+.store-section-header{text-align:center;margin-bottom:40px}
+.store-search-wrap{max-width:520px;margin:0 auto 32px;position:relative}
+.store-search-input{width:100%;padding:14px 48px 14px 20px;border:1px solid var(--c-border);border-radius:50px;font-family:var(--font);font-size:.95rem;color:var(--c-text);background:var(--c-bg);outline:none;transition:border .2s,box-shadow .2s}
+.store-search-input:focus{border-color:var(--c-accent);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.store-search-icon{position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--c-text-3);font-size:1.1rem;pointer-events:none}
+.store-search-hint{text-align:center;font-size:.78rem;color:var(--c-text-3);margin-top:8px}
+.store-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.store-card{background:var(--c-bg);border:1px solid var(--c-border);border-radius:var(--radius);padding:24px 20px;transition:box-shadow .25s,transform .25s;position:relative;display:flex;flex-direction:column}
+.store-card:hover{box-shadow:var(--c-shadow-lg);transform:translateY(-2px)}
+.store-card-tag{display:inline-block;font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:50px;margin-bottom:10px;width:fit-content}
+.store-card-tag.blue{background:var(--c-accent-lt);color:var(--c-accent)}
+.store-card-tag.gold{background:var(--c-gold-lt);color:var(--c-gold)}
+.store-card h3{font-size:.98rem;font-weight:600;margin-bottom:8px}
+.store-addr,.store-tel{font-size:.82rem;color:var(--c-text-2);margin-bottom:3px}
+.store-nav-btn{display:inline-flex;align-items:center;gap:5px;margin-top:auto;padding-top:14px;font-size:.8rem;font-weight:600;color:var(--c-accent);transition:color .2s}
+.store-nav-btn:hover{color:var(--c-accent-hv)}
+.store-nav-btn svg{flex-shrink:0}
+.store-card.upcoming{border-style:dashed;background:var(--c-bg-alt)}
+.store-card.upcoming .store-nav-btn{color:var(--c-text-3);pointer-events:none}
+.store-no-result{text-align:center;padding:40px 0;color:var(--c-text-3);font-size:.9rem;display:none}
+.store-count{text-align:center;font-size:.8rem;color:var(--c-text-3);margin-top:20px}
+
+/* CTA */
+.cta-strip{background:var(--c-bg-alt);border-top:1px solid var(--c-border);padding:60px 24px;text-align:center}
+.cta-strip-inner{max-width:500px;margin:0 auto}
+.cta-strip h3{font-size:1.2rem;margin-bottom:8px}
+.cta-strip p{color:var(--c-text-2);font-size:.93rem;margin-bottom:20px}
+.cta-strip a{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;background:var(--c-accent);color:#fff;border-radius:6px;font-size:.93rem;font-weight:600;transition:all .25s}
+.cta-strip a:hover{background:var(--c-accent-hv);transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,99,235,.25)}
+
+/* Footer */
+.footer{background:linear-gradient(160deg, #0f1d36 0%, #0a1628 100%);color:#94a3b8;padding:40px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-name{font-size:1.05rem;font-weight:700;color:#e2e8f0;margin-bottom:6px}
+.footer p{font-size:.82rem}
+.footer-links{display:flex;gap:24px;justify-content:center;margin-top:14px}
+.footer-links a{font-size:.82rem;color:var(--c-text-3);transition:color .2s}
+.footer-links a:hover{color:#e2e8f0}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:860px){
+  .contact-layout{grid-template-columns:1fr;gap:36px}
+  .form-wrap{position:static}
+  .map-container{height:300px}
+  .nav-links{position:fixed;inset:0;flex-direction:column;justify-content:center;gap:28px;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .3s}
+  .nav-links.active{opacity:1;pointer-events:auto}
+  .nav-toggle{display:flex;z-index:1001}
+}
+@media(max-width:520px){
+  .section{padding:50px 16px}
+  .page-header{padding:110px 16px 50px}
+  .form-row{grid-template-columns:1fr}
+  .form-wrap{padding:24px 20px}
+  .map-card-header{padding:20px 20px 0}
+  .store-legend{padding:14px 20px;gap:14px}
+}
+</style>
+<script>history.scrollRestoration='manual'</script>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">穿越电竞</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="index.html#about">业务体系</a></li>
+      <li><a href="jobs.html">加入我们</a></li>
+      <li><a href="contact.html" class="nav-cta active">商务联系</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+  <div class="page-header-inner">
+    <h1>商务联系</h1>
+    <p>场地合作 · 供应链对接 · 投资洽谈，期待与您的交流</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section">
+  <div class="section-inner">
+    <div class="contact-layout">
+
+      <!-- Left: Info -->
+      <div>
+        <div class="info-card reveal">
+          <div class="info-card-icon blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div><h3>公司总部</h3><p>浙江省温州市鹿城区滨江街道花源路57号3F<br></p></div>
+        </div>
+        <div class="info-card reveal">
+          <div class="info-card-icon blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div><h3>联系电话</h3><p>商务合作：0577-8988-8980<br></p></div>
+        </div>
+        <div class="info-card reveal">
+          <div class="info-card-icon blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          </div>
+          <div><h3>电子邮箱</h3><p>商务合作：54240202@qq.com<br></p></div>
+        </div>
+        <div class="info-card reveal">
+          <div class="info-card-icon gold">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div><h3>工作时间</h3><p>商务办公：周一至周五 9:00 – 17:30<br>门店营业：24 小时 · 全年无休</p></div>
+        </div>
+      </div>
+
+      <div class="form-wrap reveal">
+        <h2>发送商务咨询</h2>
+        <p>填写以下表单，我们会在 1-2 个工作日内回复。</p>
+        <form id="contactForm"
+              action="https://formspree.io/f/xbdzqjlq"
+              method="POST"
+              novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">姓名 *</label>
+              <input type="text" id="name" name="name" placeholder="您的姓名" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="email">邮箱 *</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">电话</label>
+              <input type="tel" id="phone" name="phone" placeholder="选填" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="company">公司/机构</label>
+              <input type="text" id="company" name="company" placeholder="选填">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">咨询方向</label>
+            <input type="text" id="subject" name="subject" placeholder="例如：场地合作 / 供应链对接 / 投资洽谈">
+          </div>
+          <div class="form-group">
+            <label for="message">留言内容 *</label>
+            <textarea id="message" name="message" placeholder="请描述您的需求..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">
+            <span class="btn-text">提交留言</span>
+            <span class="spinner"></span>
+          </button>
+          <div class="form-feedback" id="formFeedback"></div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Store Locations -->
+<section class="section">
+  <div class="section-inner">
+    <div class="store-section-header reveal">
+      <h2 class="section-title">旗下门店分布</h2>
+      <p class="section-desc" style="margin-bottom:0">温州地区 70+ 家门店，覆盖网咖与酒店业态</p>
+    </div>
+
+    <!-- Search -->
+    <div class="store-search-wrap reveal">
+      <input type="text" class="store-search-input" id="storeSearch"
+             placeholder="搜索门店名称或区域，如「瓯海」「瑞安」「鹿城」..."
+             autocomplete="off">
+      <span class="store-search-icon">🔍</span>
+    </div>
+
+    <!-- Featured Stores (默认展示) -->
+    <div class="store-grid" id="storeGrid"></div>
+    <div class="store-no-result" id="storeNoResult">没有匹配的门店，试试其他关键词</div>
+    <div class="store-count" id="storeCount"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip reveal">
+  <div class="cta-strip-inner">
+    <h3>想加入我们的团队？</h3>
+    <p>浙江穿越科技持续招聘门店运营、电竞技术、赛事策划等岗位人才。</p>
+    <a href="jobs.html">查看招聘岗位 →</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-name">浙江穿越信息科技有限公司</div>
+    <p>电竞网咖 · 电竞酒店 · 电竞综合体</p>
+    <div class="footer-links">
+      <a href="index.html">首页</a>
+      <a href="contact.html">商务联系</a>
+      <a href="jobs.html">加入我们</a>
+    </div>
+    <p style="margin-top:16px">© 2026 浙江穿越信息科技有限公司. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// 门店数据（按实际门店增删）
+// 格式：{ name, type:'netbar'|'hotel'|'complex', addr, tel, area }
+// type 影响标签颜色，area 用于搜索匹配
+// ============================================================
+var ALL_STORES = [
+  { name:'穿越电竞馆（非凡店）', type:'netbar', addr:'瓯海区仙岩街道沈东路69号 2F', tel:'0577-8888-8888', area:'瓯海仙岩' },
+  { name:'穿越电竞酒店（瑞祥店）', type:'hotel', addr:'瑞安市安阳街道', tel:'0577-8888-XXXX', area:'瑞安安阳' },
+  { name:'穿越电竞（鹿城店）',  type:'netbar', addr:'鹿城区核心商圈', tel:'0577-8888-XXXX', area:'鹿城' },
+  { name:'穿越电竞（瓯海店）',  type:'netbar', addr:'瓯海区新桥街道', tel:'0577-8888-XXXX', area:'瓯海新桥' },
+  { name:'穿越电竞酒店（鹿城店）', type:'hotel', addr:'鹿城区南塘街', tel:'0577-8888-XXXX', area:'鹿城南塘' },
+  { name:'穿越电竞（龙湾店）',  type:'netbar', addr:'龙湾区万达广场', tel:'0577-8888-XXXX', area:'龙湾' },
+  { name:'穿越电竞酒店（瓯海店）', type:'hotel', addr:'瓯海区万象城旁', tel:'0577-8888-XXXX', area:'瓯海' },
+  { name:'穿越电竞（瑞安塘下店）', type:'netbar', addr:'瑞安市塘下镇', tel:'0577-8888-XXXX', area:'瑞安塘下' },
+  { name:'穿越电竞综合体',    type:'complex', addr:'温州主城区（筹备中）', tel:'', area:'主城区', upcoming:true }
+];
+
+var TYPE_LABEL = { netbar:'电竞网咖', hotel:'电竞酒店', complex:'电竞综合体' };
+var FEATURED_COUNT = 6;
+
+function renderStores(stores, searchKeyword) {
+  var grid = document.getElementById('storeGrid');
+  var noResult = document.getElementById('storeNoResult');
+  var countEl = document.getElementById('storeCount');
+
+  // 搜索结果为空时 → 显示高德地图兜底卡片
+  if (!stores.length) {
+    noResult.style.display = 'none';
+    countEl.textContent = '';
+    var kw = searchKeyword || '';
+    var amapUrl = 'https://uri.amap.com/search?keyword=' + encodeURIComponent('穿越电竞 ' + kw);
+    grid.innerHTML =
+      '<div class="store-card reveal visible" style="grid-column:1/-1;text-align:center;padding:36px 24px">' +
+        '<a class="store-nav-btn" href="' + amapUrl + '" target="_blank" rel="noopener" ' +
+          'style="display:inline-flex;padding:12px 28px;background:var(--c-accent);color:#fff;border-radius:6px;font-size:.9rem;font-weight:600">' +
+          '🧭 在高德地图中搜索「穿越电竞 ' + kw + '」</a>' +
+      '</div>';
+    return;
+  }
+  noResult.style.display = 'none';
+
+  grid.innerHTML = stores.map(function(s) {
+    var isUpcoming = s.upcoming ? ' upcoming' : '';
+    var tagClass = s.type === 'complex' ? 'gold' : 'blue';
+    var navHtml = s.upcoming
+      ? '<span class="store-nav-btn">🚧 筹备中</span>'
+      : '<a class="store-nav-btn" href="https://uri.amap.com/search?keyword=' + encodeURIComponent(s.name + ' ' + s.addr) + '" target="_blank" rel="noopener">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>' +
+          '导航到这</a>';
+
+    return '<div class="store-card reveal visible' + isUpcoming + '">' +
+      '<span class="store-card-tag ' + tagClass + '">' + TYPE_LABEL[s.type] + '</span>' +
+      '<h3>' + s.name + '</h3>' +
+      '<p class="store-addr">📍 ' + s.addr + '</p>' +
+      '<p class="store-tel">📞 ' + (s.tel || '敬请期待') + '</p>' +
+      navHtml +
+      '</div>';
+  }).join('');
+
+  countEl.textContent = stores.length === ALL_STORES.length
+    ? '共 ' + ALL_STORES.length + ' 家门店'
+    : '找到 ' + stores.length + ' 家门店';
+}
+
+// 搜索逻辑：本地数据优先，搜不到跳转高德兜底
+document.getElementById('storeSearch').addEventListener('input', function() {
+  var raw = this.value.trim();
+  if (!raw) {
+    renderStores(ALL_STORES.slice(0, FEATURED_COUNT));
+    return;
+  }
+  var kw = raw.toLowerCase();
+  var filtered = ALL_STORES.filter(function(s) {
+    return s.name.indexOf(kw) !== -1 || s.addr.indexOf(kw) !== -1 || s.area.toLowerCase().indexOf(kw) !== -1;
+  });
+  renderStores(filtered, raw);
+});
+
+// 初始展示前 N 家
+renderStores(ALL_STORES.slice(0, FEATURED_COUNT));
+</script>
+
+<script>
+(function() {
+  var form = document.getElementById('contactForm');
+  var btn = document.getElementById('submitBtn');
+  var fb = document.getElementById('formFeedback');
+  if (!form) return;
+
+  function show(type, msg) { fb.className = 'form-feedback ' + type; fb.textContent = msg; }
+  function loading(v) { btn.classList.toggle('btn-loading', v); }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var msg = form.message.value.trim();
+
+    if (!name || !email || !msg) { show('error', '请填写姓名、邮箱和留言内容'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { show('error', '请输入有效的邮箱地址'); return; }
+
+    loading(true);
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(resp) {
+      if (resp.ok) {
+        show('success', '留言已发送，我们会尽快回复您。');
+        form.reset();
+      } else {
+        return resp.json().then(function(d) { throw new Error(d.error || '发送失败'); });
+      }
+    })
+    .catch(function(err) {
+      console.error(err);
+      show('error', '发送失败，请稍后重试。');
+    })
+    .finally(function() { loading(false); });
+  });
+})();
+</script>
+
+<script>
+const navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');
+function toggleMenu(){navToggle.classList.toggle('active');navLinks.classList.toggle('active');document.body.style.overflow=navLinks.classList.contains('active')?'hidden':''}
+function closeMenu(){navToggle.classList.remove('active');navLinks.classList.remove('active');document.body.style.overflow=''}
+document.querySelectorAll('.reveal').forEach(function(e){new IntersectionObserver(function(x){x.forEach(function(x){if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.12,rootMargin:'0px 0px -30px 0px'}).observe(e)});
+</script>
+</body>
+</html>
