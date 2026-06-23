@@ -94,9 +94,10 @@ async function fetchWithPuppeteer() {
 
     // 模拟人类行为：随机滚动
     await sleep(rand(2000, 4000));
-    await page.evaluate(() => {
-      window.scrollBy(0, rand(300, 800));
-    });
+    const scrollAmount = rand(300, 800);
+    await page.evaluate((scrollY) => {
+      window.scrollBy(0, scrollY);
+    }, scrollAmount);
     await sleep(rand(1500, 3000));
 
     // 等待职位列表加载
