@@ -61,7 +61,8 @@ async function fetchWithPuppeteer() {
     console.warn('⚠️  stealth 插件加载失败，继续尝试...');
   }
 
-  const browser = await puppeteer.launch({
+  const chromePath = process.env.CHROME_PATH;
+  const launchOpts = {
     headless: 'new',
     args: [
       '--no-sandbox',
@@ -71,7 +72,12 @@ async function fetchWithPuppeteer() {
       '--window-size=1920,1080',
       '--lang=zh-CN',
     ],
-  });
+  };
+  if (chromePath) {
+    launchOpts.executablePath = chromePath;
+    console.log(`📌 使用系统 Chrome: ${chromePath}`);
+  }
+  const browser = await puppeteer.launch(launchOpts);
 
   const page = await browser.newPage();
 
