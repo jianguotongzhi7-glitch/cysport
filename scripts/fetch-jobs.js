@@ -91,44 +91,36 @@ async function fetchWithPuppeteer() {
   try {
     console.log(`🌐 正在访问: ${TARGET_URL}`);
 
-    // 尝试多种策略加载页面（Boss直聘反爬较强）
-    let navigationSuccess = false;
-    for (const waitStrategy of ['load', 'domcontentloaded']) {
-      try {
-        await page.goto(TARGET_URL, { waitUntil: waitStrategy, timeout: 30000 });
-        const currentUrl = page.url();
-        if (currentUrl && currentUrl !== 'about:blank') {
-          navigationSuccess = true;
-          console.log(`   ✅ 页面加载成功 (${waitStrategy}): ${currentUrl}`);
-          break;
-        }
-      } catch (navErr) {
-        console.log(`   ⚠️  策略 ${waitStrategy} 失败: ${navErr.message}`);
-      }
-    }
+    // 导航到目标页面
+    await page.goto(TARGET_URL, { waitUntil: 'load', timeout: 45000 });
+    let currentUrl = page.url();
+    console.log(`   📍 当前 URL: ${currentUrl}`);
 
-    // 备用方案：先访问首页再跳转
-    if (!navigationSuccess) {
-      console.log('   ⚠️  尝试备用方案（先访首页）...');
+    // 如果遇到安全验证页面，等待验证通过后的自动跳转
+    if (currentUrl.includes('security.html') || currentUrl.includes('passport')) {
+      console.log('   🔄 检测到安全验证，等待自动跳转...');
       try {
-        await page.goto('https://www.zhipin.com', { waitUntil: 'domcontentloaded', timeout: 15000 });
-        await sleep(2000);
-        await page.goto(TARGET_URL, { waitUntil: 'load', timeout: 30000 });
-        const fallbackUrl = page.url();
-        if (fallbackUrl && fallbackUrl !== 'about:blank') {
-          navigationSuccess = true;
-          console.log(`   ✅ 备用方案成功: ${fallbackUrl}`);
-        }
-      } catch (e) {
-        console.log(`   ⚠️  备用方案失败: ${e.message}`);
+        await page.waitForNavigation({ timeout: 30000 });
+        currentUrl = page.url();
+        console.log(`   ✅ 验证通过，已跳转到: ${currentUrl}`);
+      } catch (navErr) {
+        console.log(`   ⚠️  验证等待超时: ${navErr.message}`);
+        // 尝试手动等待后重新获取 URL
+        await sleep(5000);
+        currentUrl = page.url();
+        console.log(`   📍 等待后的 URL: ${currentUrl}`);
       }
     }
 
     await sleep(rand(2000, 4000));
-    const scrollAmount = rand(300, 800);
-    await page.evaluate((scrollY) => {
-      window.scrollBy(0, scrollY);
-    }, scrollAmount);
+    try {
+      const scrollAmount = rand(300, 800);
+      await page.evaluate((scrollY) => {
+        window.scrollBy(0, scrollY);
+      }, scrollAmount);
+    } catch (scrollErr) {
+      console.log(`   ⚠️  滚动页面出错（不影响）: ${scrollErr.message}`);
+    }
     await sleep(rand(1500, 3000));
 
     // 等待职位列表加载
@@ -138,11 +130,13 @@ async function fetchWithPuppeteer() {
     // ============================================================
     // 方案1：从页面内嵌的 __NEXT_DATA__ 或 __INITIAL_STATE__ 提取
     // ============================================================
-    const jobs = await page.evaluate(() => {
-      const results = [];
+    let jobsData = null;
+    try {
+      jobsData = await page.evaluate(() => {
+        const results = [];
 
-      // 尝试从 window.__NEXT_DATA__ 提取（Next.js 页面）
-      const scripts = document.querySelectorAll('script[type="application/json"], script[id]');
+        // 尝试从 window.__NEXT_DATA__ 提取（Next.js 页面）
+        const scripts = document.querySelectorAll('script[type="application/json"], script[id]');
       for (const script of scripts) {
         try {
           const data = JSON.parse(script.textContent);
@@ -195,6 +189,10 @@ async function fetchWithPuppeteer() {
 
       return results;
     });
+  } catch (evaluateErr) {
+    console.log(`   ⚠️  页面提取过程出错: ${evaluateErr.message}`);
+  }
+  const jobs = jobsData || [];
 
     console.log(`📋 从页面中提取到 ${jobs.length} 个岗位\n`);
 
