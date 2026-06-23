@@ -91,24 +91,27 @@ async function fetchWithPuppeteer() {
   try {
     console.log(`🌐 正在访问: ${TARGET_URL}`);
 
-    // 导航到目标页面
-    await page.goto(TARGET_URL, { waitUntil: 'load', timeout: 45000 });
+    // 使用 networkidle2 等待页面完全加载（Boss直聘是动态页面）
+    await page.goto(TARGET_URL, { waitUntil: 'networkidle2', timeout: 60000 });
     let currentUrl = page.url();
     console.log(`   📍 当前 URL: ${currentUrl}`);
 
     // 如果遇到安全验证页面，等待验证通过后的自动跳转
-    if (currentUrl.includes('security.html') || currentUrl.includes('passport')) {
-      console.log('   🔄 检测到安全验证，等待自动跳转...');
-      try {
-        await page.waitForNavigation({ timeout: 30000 });
-        currentUrl = page.url();
-        console.log(`   ✅ 验证通过，已跳转到: ${currentUrl}`);
-      } catch (navErr) {
-        console.log(`   ⚠️  验证等待超时: ${navErr.message}`);
-        // 尝试手动等待后重新获取 URL
+    if (currentUrl.includes('security.html') || currentUrl.includes('passport') || currentUrl === 'about:blank') {
+      if (currentUrl !== 'about:blank') {
+        console.log('   🔄 检测到安全验证，等待自动跳转...');
+      } else {
+        console.log('   🔄 页面为空白，等待重试...');
+      }
+      // 等待导航/重定向 - 最多等 35 秒
+      for (let i = 0; i < 7; i++) {
         await sleep(5000);
         currentUrl = page.url();
-        console.log(`   📍 等待后的 URL: ${currentUrl}`);
+        console.log(`   ⏳ 第 ${i + 1} 次检查: ${currentUrl}`);
+        if (currentUrl && !currentUrl.includes('security.html') && !currentUrl.includes('passport') && currentUrl !== 'about:blank') {
+          console.log(`   ✅ 成功到达目标页面: ${currentUrl}`);
+          break;
+        }
       }
     }
 
