@@ -167,9 +167,14 @@ async function fetchWithPuppeteer() {
     console.log(`📋 从页面中提取到 ${jobs.length} 个岗位\n`);
 
     if (!jobs.length) {
-      // 打印页面标题帮助调试
       const title = await page.title();
+      const url = page.url();
       console.log(`   页面标题: "${title}"`);
+      console.log(`   当前 URL: ${url}`);
+      // 截屏保存到工件，方便调试
+      const screenshotPath = path.join(__dirname, '..', 'debug-screenshot.png');
+      await page.screenshot({ path: screenshotPath, fullPage: true });
+      console.log(`   📸 已保存截屏到 ${screenshotPath}`);
       console.log('   可能触发了验证码或被重定向。');
     }
 
