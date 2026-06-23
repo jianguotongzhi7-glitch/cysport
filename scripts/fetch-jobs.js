@@ -90,9 +90,40 @@ async function fetchWithPuppeteer() {
 
   try {
     console.log(`🌐 正在访问: ${TARGET_URL}`);
-    await page.goto(TARGET_URL, { waitUntil: 'networkidle2', timeout: 60000 });
 
-    // 模拟人类行为：随机滚动
+    // 尝试多种策略加载页面（Boss直聘反爬较强）
+    let navigationSuccess = false;
+    for (const waitStrategy of ['load', 'domcontentloaded']) {
+      try {
+        await page.goto(TARGET_URL, { waitUntil: waitStrategy, timeout: 30000 });
+        const currentUrl = page.url();
+        if (currentUrl && currentUrl !== 'about:blank') {
+          navigationSuccess = true;
+          console.log(`   ✅ 页面加载成功 (${waitStrategy}): ${currentUrl}`);
+          break;
+        }
+      } catch (navErr) {
+        console.log(`   ⚠️  策略 ${waitStrategy} 失败: ${navErr.message}`);
+      }
+    }
+
+    // 备用方案：先访问首页再跳转
+    if (!navigationSuccess) {
+      console.log('   ⚠️  尝试备用方案（先访首页）...');
+      try {
+        await page.goto('https://www.zhipin.com', { waitUntil: 'domcontentloaded', timeout: 15000 });
+        await sleep(2000);
+        await page.goto(TARGET_URL, { waitUntil: 'load', timeout: 30000 });
+        const fallbackUrl = page.url();
+        if (fallbackUrl && fallbackUrl !== 'about:blank') {
+          navigationSuccess = true;
+          console.log(`   ✅ 备用方案成功: ${fallbackUrl}`);
+        }
+      } catch (e) {
+        console.log(`   ⚠️  备用方案失败: ${e.message}`);
+      }
+    }
+
     await sleep(rand(2000, 4000));
     const scrollAmount = rand(300, 800);
     await page.evaluate((scrollY) => {
